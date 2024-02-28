@@ -138,8 +138,6 @@ function tennis() {
             rightRacquet.speedY = 0;
             leftScore++;
             scoreElem.innerHTML=`${leftScore}:${rightScore}`;
-            window.removeEventListener("keydown", keydownFunc);
-            window.removeEventListener("keyup", keyupFunc);
             btnElem.addEventListener("click", start);
     } else if ( ball.posX<0 ) {
             ball.posX = 0;
@@ -149,8 +147,6 @@ function tennis() {
             rightRacquet.speedY = 0;
             rightScore++;
             scoreElem.innerHTML=`${leftScore}:${rightScore}`;
-            window.removeEventListener("keydown", keydownFunc);
-            window.removeEventListener("keyup", keyupFunc);
             btnElem.addEventListener("click", start);
     } else if ( ball.posY+ball.height > field.height ) {
         ball.speedY=-ball.speedY;
@@ -200,12 +196,12 @@ function start() {
     do {
         ball.speedY = Math.floor((Math.random() - 0.5) * 10);
     } while ( ball.speedY === 0 );
-
-    window.addEventListener("keydown", keydownFunc);
-    window.addEventListener("keyup", keyupFunc);
 }
 
 btnElem.addEventListener("click", start);
+
+window.addEventListener("keydown", keydownFunc);
+window.addEventListener("keyup", keyupFunc);
 
 setInterval(tennis,40);
 
