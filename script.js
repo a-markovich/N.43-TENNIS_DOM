@@ -134,6 +134,8 @@ function tennis() {
             ball.posX=field.width-ball.width;
             ball.speedX = 0;
             ball.speedY = 0;
+            leftRacquet.speedY = 0; 
+            rightRacquet.speedY = 0;
             leftScore++;
             scoreElem.innerHTML=`${leftScore}:${rightScore}`;
             window.removeEventListener("keydown", keydownFunc);
@@ -142,7 +144,9 @@ function tennis() {
     } else if ( ball.posX<0 ) {
             ball.posX = 0;
             ball.speedX = 0;
-            ball.speedY = 0;  
+            ball.speedY = 0; 
+            leftRacquet.speedY = 0; 
+            rightRacquet.speedY = 0;
             rightScore++;
             scoreElem.innerHTML=`${leftScore}:${rightScore}`;
             window.removeEventListener("keydown", keydownFunc);
